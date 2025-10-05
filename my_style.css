@@ -1,0 +1,92 @@
+
+a:link {color: #0077cc; text-decoration: none;}
+
+
+a:visited {color: #551a8b;}
+
+
+a:hover {color: #ff6600; text-decoration: underline;}
+
+
+a:active {color: red;}
+
+
+footer {
+  background-color: red;   
+  color: yellow;                       
+  height: 60px;                
+  line-height: 60px;  
+  align-items:center; 
+  display:flex;    
+}
+
+.body_wrapper
+{
+  min-height: 100%; 
+  box-sizing: border-box;
+  display:flex;
+flex-direction: column;
+}
+
+html,body
+{
+  box-sizing: border-box;
+  height:100%;
+}
+
+nav {
+  background-color: grey;     
+  padding: 10px;              
+  width: 100%;                   
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;       
+  flex-wrap: wrap;               
+}
+
+nav li {
+  margin: 10px ;
+}
+
+nav a {
+  color: red;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+}
+
+
+nav a:hover {
+  color: blue;
+  border-bottom: 2px solid #ff6600;
+}
+
+
+nav a.active {
+  color: yellow;
+}
+
+/* === SCROLLBAR STYLE (fonctionne sur Chrome, Edge, Safari) === */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff6600;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e65c00;
+}
+
