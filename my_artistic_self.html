@@ -1,84 +1,78 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>  
-<link rel="stylesheet" href="my_style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta charset="UTF-8">
+<head>  
+  <meta charset="UTF-8">
   <meta name="author" content="Cherif Camara">
-        <title>Checams</title>
-     </head>
-  <body>
-<div>
-<nav>
-  <ul>
-    <li><a href="index.html" >Page d'accueil </a></li>
-    <li><a href="my_vacations.html">Mes vacances</a></li>
-    <li><a href="my_artistic_self.html" class="active">My Artistic Self</a></li>
-    <li><a href="marketplace.html">Marketplace </a></li>
-    <li><a href="calculators.html">Calculators</a></li>
-
-  </ul>
-</nav>
-<h1> <a href = "index.html" > Page d'accueil </a> </h1>
-
-<p style="margin-top: 40px; text-align: center; font-family: Arial, sans-serif; color: #333; line-height: 1.6;">This image shows the portrait of a lion, a powerful symbol of courage, strength, and leadership. 
-  I chose this image because the lion reflects the way I approach challenges in life: with confidence, 
-  focus, and determination. Surrounding the lion are five keywords that represent who I am: 
-  <b>CREATIVE</b>, <b>RESILIENT</b>, <b>PRIDE</b>, <b>RESPECT</b>, and <b>HONESTY</b>. 
-  Creativity is important to me because it allows me to think differently, to innovate, and to express myself. 
-  Resilience is a quality I value because it helps me overcome difficulties and continue moving forward despite obstacles. 
-  Pride represents both my identity and the satisfaction I feel in my achievements. 
-  Respect is essential in all my relationships, as it builds trust and harmony. 
-  Finally, honesty is the foundation of my character and the principle that guides my decisions every day. </p>
-</body>
-<style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checams – My Artistic Self</title>
+  <link rel="stylesheet" href="my_style.css">
+  <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin: 40px;
-
-    
+      color: #333;
+      line-height: 1.6;
+    }
     .container {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px; /* espace entre mots et image */
+      gap: 40px;
+      margin-top: 50px;
     }
-
     .col {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       height: 300px;
     }
-
-      p {
+    .col p {
       font-weight: bold;
+      margin: 10px 0;
+    }
+    footer {
+      margin-top: 40px;
     }
   </style>
 </head>
+
 <body>
 
-  <div class="container">
-    <!-- Colonne gauche -->
+<div id="main-nav"></div>
+<script src="nav.js"></script>
+<script>
+    const current_path = window.location.pathname.split('/').pop();
+    setNav(current_path);
+</script>
+
+<h1><a href="index.html">Page d'accueil</a></h1>
+
+<p>
+    This image shows the portrait of a lion, a powerful symbol of courage, strength, and leadership.
+    I chose this image because the lion reflects the way I approach challenges in life: with confidence,
+    focus, and determination. Surrounding the lion are five keywords that represent who I am:
+    <b>CREATIVE</b>, <b>RESILIENT</b>, <b>PRIDE</b>, <b>RESPECT</b>, and <b>HONESTY</b>.
+</p>
+
+<div class="container">
     <div class="col">
       <p>CREATIVE</p>
       <p>RESILIENT</p>
     </div>
 
-    <!-- Image au centre -->
-    <img src="images/lion-wallpaper5.jpg" alt="Lion portrait">
+    <img src="images/lion-wallpaper5.jpg" alt="Lion portrait" width="300">
 
-    <!-- Colonne droite -->
     <div class="col">
       <p>PRIDE</p>
       <p>RESPECT</p>
       <p>HONESTY</p>
     </div>
-  </div>
-<footer>
-  Ce site est fait pour les labs CS203!
-</footer>
 </div>
+
+<footer>
+    Ce site est fait pour les labs CS203 !
+</footer>
+
+</body>
 </html>

@@ -1,85 +1,82 @@
-
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="my_style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Cherif Camara">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checams</title>
+    <link rel="stylesheet" href="my_style.css">
+</head>
+<body>
 
-<meta charset="UTF-8">
-  <meta name="author" content="Cherif Camara">
-        <title>Checams</title>
-    </head>
-    <body>
+<div id="main-nav"></div>
+<script src="nav.js"></script>
+<script>
+    const current_path = window.location.pathname.split('/').pop();
+    setNav(current_path);
+</script>
+
 <div>
-<nav>
-  <ul>
-    <li><a href="index.html" class="active">Page d'accueil </a></li>
-    <li><a href="my_vacations.html">Mes vacances</a></li>
-    <li><a href="my_artistic_self.html">My Artistic Self</a></li>
-    <li><a href="marketplace.html">Marketplace </a></li>
-    <li><a href="calculators.html">Calculators</a></li>
-  </ul>
-</nav>
-  <h1>Bienvenue sur ma page personnelle</h1>
-  
-  <h2>Qui suis-je ?</h2>
-  <p>
-    Salut ! Je m'appelle <strong>Cherif Camara</strong>.<br>
-    Je suis étudiant-athlète en Neurosciences psychologie et je suis passionné par le <em>football</em> ainsi que la <em>neuroscience</em>.<br>
-    Je fais aussi un deuxième sport qu'est le soccer et je le pratique juste durant l'été quand on prend nos vacances de 3 mois au football. Comme ça je m'assure de rester en forme.
-  </p>
-  
+    <h1>Bienvenue sur ma page personnelle</h1>
+
+    <h2>Qui suis-je ?</h2>
+    <p>
+        Salut ! Je m'appelle <strong>Cherif Camara</strong>.<br>
+        Je suis étudiant-athlète en Neurosciences psychologie et je suis passionné par le <em>football</em> ainsi que la <em>neuroscience</em>.<br>
+        Je fais aussi un deuxième sport qu'est le soccer et je le pratique juste durant l'été quand on prend nos vacances de 3 mois au football. Comme ça je m'assure de rester en forme.
+    </p>
 
     <hr>
-  <h2>Mes centres d'intérêt</h2>
-  <ul>
-    <li>Football &amp; Soccer &amp; Golf &amp; Excursion en forêt</li>
-    <li>Neuroscience &amp; Médecine &amp; Psychologie</li>
-    <li>Passer des moments de solitude dans la nature</li>
-    <li>Voyages et Culture</li>
-  </ul>
-  
+    <h2>Mes centres d'intérêt</h2>
+    <ul>
+        <li>Football &amp; Soccer &amp; Golf &amp; Excursion en forêt</li>
+        <li>Neuroscience &amp; Médecine &amp; Psychologie</li>
+        <li>Passer des moments de solitude dans la nature</li>
+        <li>Voyages et Culture</li>
+    </ul>
 
-  <hr>
-  <h2>Mon parcours scolaire</h2>
-  <table border="1" style="width:100%; border-collapse: collapse;">
+    <hr>
+    <h2>Mon parcours scolaire</h2>
+    <table border="1" style="width:100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: yellow;font-family: Algerian, serif;">
+                <th>Année</th>
+                <th>Diplôme / École</th>
+            </tr>
+        </thead>
+        <tbody style="text-align: center;">
+            <tr>
+                <td>2022-...</td>
+                <td>B.Sc. Neuroscience, Université de Bishops</td>
+            </tr>
+            <tr>
+                <td>2019-2022</td>
+                <td>DEC Sciences Naturelles, Cégep de Sherbrooke</td>
+            </tr>
+            <tr>
+                <td>2015-2019</td>
+                <td>DES, École Secondaire Internationale du Phare</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <thead>
-      <tr style="background-color: yellow;font-family: Algerian, serif;" >
+    <hr>
+    <a href="my_vacations.html">Mes vacances</a>
 
-        <th>Année</th>
-        <th>Diplôme / École</th>
-      </tr>
-    </thead>
-    <tbody style="text-align: center;">
-      <tr>
-        <td>2022-...</td>
-        <td>B.Sc. Neuroscience, Université de Bishops</td>
-      </tr>
-      <tr>
-        <td>2019-2022</td>
-        <td>DEC Sciences Naturelles, Cégep de Sherbrooke </td>
-      </tr>
-      <tr>
-        <td>2015-2019</td>
-        <td>DES, École Secondaire Internationale du Phare</td>
-      </tr>
-    </tbody>
-  </table>
-<hr>
-<a href="my_vacations.html"> Mes vacances </a>
-<hr>
-<h2> Références </h2>
-<p>
-  Camara, Cherif Ibrahima. 
-  <i>My artistic self</i>. 
-  <a href="my_artistic_self.html" target="_blank">
-    https://Cherif.github.io/my_artistic_self.html/
-  </a>, 2025.
-</p>
-<footer>
-  Ce site est fait pour les labs CS203!
-</footer>
+    <hr>
+    <h2>Références</h2>
+    <p>
+        Camara, Cherif Ibrahima. 
+        <i>My artistic self</i>. 
+        <a href="my_artistic_self.html" target="_blank">
+            https://Cherif.github.io/my_artistic_self.html/
+        </a>, 2025.
+    </p>
+
+    <footer>
+        Ce site est fait pour les labs CS203!
+    </footer>
 </div>
+
 </body>
 </html>

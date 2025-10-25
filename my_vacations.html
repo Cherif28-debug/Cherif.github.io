@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-<link rel="stylesheet" href="my_style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Cherif Camara">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checams – Mes Vacances</title>
+    <link rel="stylesheet" href="my_style.css">
+</head>
+<body>
 
-<a href="my_vacations.html" class="active">Mes vacances</a>
-<meta charset="UTF-8">
-  <meta name="author" content="Cherif Camara">
-        <title>Checams</title>
-    </head>
-    <body>
+<div id="main-nav"></div>
+<script src="nav.js"></script>
+<script>
+    const current_path = window.location.pathname.split('/').pop();
+    setNav(current_path);
+</script>
+
 <div>
-<nav>
-  <ul>
-    <li><a href="index.html" >Page d'accueil </a></li>
-    <li><a href="my_vacations.html"class="active">Mes vacances</a></li>
-    <li><a href="my_artistic_self.html">My Artistic Self</a></li>
-    <li><a href="marketplace.html">Marketplace </a></li>
-    <li><a href="calculators.html">Calculators</a></li>
-  </ul>
-</nav>
-<h1> Mes Vacances </h1>
+    <h1>Mes Vacances</h1>
 
-<p>Voici quelques destinations déja visitées</p>
+    <p>Voici quelques destinations déjà visitées :</p>
 
-<ul>
-<li>France: Paris/Bordeaux</li>
-<li>Espagne: Barcelone/Rubi/Valence</li>
-<li>Mexique: Cancun/Chichen Itza/Isla Mujeres</li>
-<li>Italie: Venise/Rome</li>
-<li> et d'autres</li>
-</ul>
+    <ul>
+        <li>France: Paris/Bordeaux</li>
+        <li>Espagne: Barcelone/Rubi/Valence</li>
+        <li>Mexique: Cancun/Chichen Itza/Isla Mujeres</li>
+        <li>Italie: Venise/Rome</li>
+        <li>et d'autres</li>
+    </ul>
 
-<a href="https://www.google.ca/maps/place/915+Rue+Thibault,+Sherbrooke,+QC+J1H+3B3/@45.3757509,-71.9032579,17z/data=!3m1!4b1!4m6!3m5!1s0x4cb7b32c5d2d6313:0xc1a2f5dac1ba10b4!8m2!3d45.3757509!4d-71.900683!16s%2Fg%2F11v09fykmp?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"> Chez moi </a>
-<br>
-<br>
-<img style = "border: 2px solid black; border-radius: 8px;" src="images/Barcelone.jpg"» alt="Espagne"><br>
-<img style = "border: 2px solid black; border-radius: 8px;" src="images/Bordeaux.jpg"» alt="France"><br>
-<img style = "border: 2px solid black; border-radius: 8px;" src="images/Jamaica.jpg"» alt="Jamaique"><br>
-<img style = "border: 2px solid black; border-radius: 8px;" src="images/Mexico.jpg"» alt="Mexique"><br>
-<footer>
-  Ce site est fait pour les labs CS203!
-</footer>
+    <a href="https://www.google.ca/maps/place/915+Rue+Thibault,+Sherbrooke,+QC+J1H+3B3/@45.3757509,-71.9032579,17z" target="_blank">Chez moi</a>
+    <br><br>
+
+    <img style="border: 2px solid black; border-radius: 8px;" src="images/Barcelone.jpg" alt="Espagne"><br>
+    <img style="border: 2px solid black; border-radius: 8px;" src="images/Bordeaux.jpg" alt="France"><br>
+    <img style="border: 2px solid black; border-radius: 8px;" src="images/Jamaica.jpg" alt="Jamaïque"><br>
+    <img style="border: 2px solid black; border-radius: 8px;" src="images/Mexico.jpg" alt="Mexique"><br>
+
+    <footer>
+        Ce site est fait pour les labs CS203!
+    </footer>
 </div>
+
 </body>
 </html>
