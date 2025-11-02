@@ -15,7 +15,6 @@ function setNav(current_path) {
         });
 }
 
-
 function splitAtRoot(url) {
     return url.split('/').slice(-1)[0];
 }

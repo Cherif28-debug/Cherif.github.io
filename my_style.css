@@ -150,3 +150,31 @@ button:hover {
 .choices input {
   margin-right: 5px;
 }
+.diaporama {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slideshow_img {
+  display: none;
+}
+
+.slideshow_img img {
+  width: 100%;
+}
+
+#prev, #next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 24px;
+  text-shadow: 0px 0px 5px rgba(0,0,0,0.7);
+  cursor: pointer;
+  padding: 5px;
+}
+
+#prev { left: 10px; }
+#next { right: 10px; }
+
