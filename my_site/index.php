@@ -9,13 +9,7 @@
 </head>
 <body>
 
-<!-- Navigation directe (pas de fetch) -->
-<nav>
-  <ul>
-    <li><a href="index.html" class="current_page">Page d'accueil</a></li>
-    <li><a href="to-do.html">Mes tâches</a></li>
-  </ul>
-</nav>
+<?php include 'nav.php'; ?>
 
 <main>
     <h1>Bienvenue sur ma page personnelle</h1>
@@ -61,7 +55,7 @@
         </tbody>
     </table>
 
-        <hr>
+    <hr>
     <h2>Mon carrousel d'images</h2>
     <div class="diaporama">
         <div class="slideshow_img"><img src="images/lac_rose.jpg" alt="Lac Rose"></div>
@@ -77,15 +71,13 @@
     <p>
         Camara, Cherif Ibrahima. 
         <i>My artistic self</i>. 
-        <a href="my_artistic_self.html" target="_blank">
-            https://Cherif.github.io/my_artistic_self.html/
+        <a href="my_artistic_self.php" target="_blank">
+            https://Cherif.github.io/my_artistic_self.php/
         </a>, 2025.
     </p>
 </main>
 
-<footer>
-    Ce site est fait pour les labs CS203!
-</footer>
+<?php include 'footer.php'; ?>
 
 <!-- Carrousel script -->
 <script src="carrousel.js" defer></script>
