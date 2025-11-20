@@ -1,3 +1,5 @@
+<?php include 'nav.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>  
@@ -31,22 +33,12 @@
       font-weight: bold;
       margin: 10px 0;
     }
-    footer {
-      margin-top: 40px;
-    }
   </style>
 </head>
 
 <body>
 
-<div id="main-nav"></div>
-<script src="nav.js"></script>
-<script>
-    const current_path = window.location.pathname.split('/').pop();
-    setNav(current_path);
-</script>
-
-<h1><a href="index.html">Page d'accueil</a></h1>
+<h1><a href="index.php">Page d'accueil</a></h1>
 
 <p>
     This image shows the portrait of a lion, a powerful symbol of courage, strength, and leadership.
@@ -70,9 +62,6 @@
     </div>
 </div>
 
-<footer>
-    Ce site est fait pour les labs CS203 !
-</footer>
-
+<?php include 'footer.php'; ?>
 </body>
 </html>
