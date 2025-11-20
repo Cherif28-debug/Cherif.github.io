@@ -1,13 +1,16 @@
 <?php
+require_once __DIR__ . '/includes/config.php';
 session_start();
 
 // Vérifier si l'utilisateur est connecté
-if (empty($_SESSION['logged_in'])) {
+if (empty($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
     header('Location: login.php');
     exit();
 }
 
 include 'nav.php';
+
+$username = isset($_COOKIE['todo-username']) ? $_COOKIE['todo-username'] : 'Utilisateur';
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +25,13 @@ include 'nav.php';
 </head>
 <body>
 
+<!-- Bouton déconnexion -->
+<form method="post" action="login.php" style="position:absolute; top:10px; right:10px;">
+    <button type="submit" name="logout">Se déconnecter</button>
+</form>
+
 <h1>Ma liste de choses à faire</h1>
+<h2>La liste de tâches de <?= htmlspecialchars($username) ?></h2>
 
 <form id="todo-form">
     <input type="text" id="new-item" placeholder="Nouvelle tâche...">

@@ -1,10 +1,12 @@
 <?php
+// ----------------- MODELE -----------------
+require_once __DIR__ . '/includes/config.php';
 session_start();
-require_once __DIR__ . '/includes/config.php'; // si tu veux config spécifique
 
 $correctPassword = 'CS203';
-$error = null;
-$message = null;
+$error = '';
+$message = '';
+$username = '';
 
 // Déconnexion
 if (isset($_POST['logout'])) {
@@ -13,53 +15,58 @@ if (isset($_POST['logout'])) {
     $message = "Déconnecté avec succès !";
 }
 
-// Vérification de session existante
-if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    header('Location: to-do.php');
-    exit();
-}
-
 // Gestion du fichier login_attempts.json
 $attemptsFile = 'login_attempts.json';
-$attempts = file_exists($attemptsFile) ? json_decode(file_get_contents($attemptsFile), true) : [];
+if (!file_exists($attemptsFile)) file_put_contents($attemptsFile, json_encode([]));
+$attempts = json_decode(file_get_contents($attemptsFile), true);
+
+// Pré-remplissage avec le cookie
+if (isset($_COOKIE['todo-username'])) {
+    $username = $_COOKIE['todo-username'];
+}
 
 // Traitement du formulaire de connexion
 if (isset($_POST['username'], $_POST['password'])) {
-    $user = $_POST['username'];
+    $username = trim($_POST['username']);
     $password = $_POST['password'];
 
-    // Initialiser l'utilisateur si inexistant
-    if (!isset($attempts[$user])) {
-        $attempts[$user] = ['tentatives' => 0, 'locked_until' => 0];
+    // Initialisation si nouvel utilisateur
+    if (!isset($attempts[$username])) {
+        $attempts[$username] = ['tentatives' => 0, 'locked_until' => 0];
     }
 
-    // Vérifier si l'utilisateur est verrouillé
-    if ($attempts[$user]['locked_until'] > time()) {
-        $error = "Utilisateur temporairement verrouillé, réessayez plus tard.";
+    // Vérifier verrouillage
+    if ($attempts[$username]['locked_until'] > time()) {
+        $remaining = $attempts[$username]['locked_until'] - time();
+        $error = "Utilisateur temporairement verrouillé, réessayez dans $remaining secondes.";
     } elseif ($password === $correctPassword) {
         // Connexion réussie
-        $_SESSION['logged_in'] = true;
-        setcookie('todo-username', $user, time() + 3600); // cookie 1h
-        // Réinitialiser le compteur de tentatives
-        $attempts[$user]['tentatives'] = 0;
+        $_SESSION['is_logged_in'] = true;
+        setcookie('todo-username', $username, time() + 3600, "/"); // cookie 1h
+        $attempts[$username]['tentatives'] = 0;
+        $attempts[$username]['locked_until'] = 0;
         file_put_contents($attemptsFile, json_encode($attempts));
         header('Location: to-do.php');
         exit();
     } else {
         // Mauvais mot de passe
-        $attempts[$user]['tentatives'] += 1;
-        if ($attempts[$user]['tentatives'] >= 3) {
-            $attempts[$user]['locked_until'] = time() + 30; // bloque 30s
-            $attempts[$user]['tentatives'] = 0;
-            $error = "Verrouillé 30 secondes après 3 tentatives.";
+        $attempts[$username]['tentatives'] += 1;
+        if ($attempts[$username]['tentatives'] >= 3) {
+            $attempts[$username]['locked_until'] = time() + 30; // verrou 30s
+            $attempts[$username]['tentatives'] = 0;
+            $error = "Trop de tentatives. Compte verrouillé 30 secondes.";
         } else {
             $error = "Mot de passe incorrect !";
         }
         file_put_contents($attemptsFile, json_encode($attempts));
     }
 }
+
+// Afficher le formulaire même si déjà connecté
+$alreadyLoggedIn = isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true;
 ?>
 
+<!-- ----------------- VIEW ----------------- -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -76,11 +83,21 @@ if (isset($_POST['username'], $_POST['password'])) {
 <?php if ($message) echo "<p style='color:green;'>$message</p>"; ?>
 <?php if ($error) echo "<p style='color:red;'>$error</p>"; ?>
 
+<?php if (!$alreadyLoggedIn): ?>
 <form method="post" action="login.php">
-    <input type="text" name="username" placeholder="Nom d'utilisateur" value="<?php echo isset($_COOKIE['todo-username']) ? htmlspecialchars($_COOKIE['todo-username']) : ''; ?>" required>
-    <input type="password" name="password" placeholder="Mot de passe" required>
+    <label>
+        Nom d'utilisateur: 
+        <input type="text" name="username" value="<?= htmlspecialchars($username) ?>" required>
+    </label><br><br>
+    <label>
+        Mot de passe: 
+        <input type="password" name="password" required>
+    </label><br><br>
     <button type="submit">Se connecter</button>
 </form>
+<?php else: ?>
+<p>Vous êtes déjà connecté. <a href="to-do.php">Accéder à la liste des tâches</a> ou <form style="display:inline;" method="post"><button type="submit" name="logout">Se déconnecter</button></form></p>
+<?php endif; ?>
 
 <?php include __DIR__ . '/footer.php'; ?>
 
